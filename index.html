@@ -7,7 +7,64 @@
     <title>Weather App</title>
 </head>
 <body>
-    <button id="getCity">Generate</button>
+    <nav>
+        <h1>Weather Dashboard</h1>
+    </nav>
+    <main>
+        <aside>
+            <form>
+                <h2>Search for a City:</h2>
+                <input type="text" placeholder="San Diego"> <br>
+                <button id="getCity">Search</button>
+            </form>
+            <div id="greyLine"></div>
+        </aside>
+        <div>
+            <h2 id="cityDisplay"></h2>
+            <div id="currentWeatherImg"></div>
+            <p id="tempDisplay"></p>
+            <p id="windDisplay"></p>
+            <p id="humidityDisplay"></p>
+        </div>
+        <div>
+            <h3>5 Day Forecast:</h3>
+            <div id="day1">
+                <h4 id="1date"></h4>
+                <div id="1weatherImg"></div>
+                <p id="1tempDisplay"></p>
+                <p id="1windDisplay"></p>
+                <p id="1humidityDisplay"></p>
+            </div>
+            <div id="day2">
+                <h4 id="2date"></h4>
+                <div id="2weatherImg"></div>
+                <p id="2tempDisplay"></p>
+                <p id="2windDisplay"></p>
+                <p id="2humidityDisplay"></p>
+            </div>
+            <div id="day3">
+                <h4 id="3date"></h4>
+                <div id="3weatherImg"></div>
+                <p id="3tempDisplay"></p>
+                <p id="3windDisplay"></p>
+                <p id="3humidityDisplay"></p>
+            </div>
+            <div id="day4">
+                <h4 id="4date"></h4>
+                <div id="4weatherImg"></div>
+                <p id="4tempDisplay"></p>
+                <p id="4windDisplay"></p>
+                <p id="4humidityDisplay"></p>
+            </div>
+            <div id="day5">
+                <h4 id="5date"></h4>
+                <div id="5weatherImg"></div>
+                <p id="5tempDisplay"></p>
+                <p id="5windDisplay"></p>
+                <p id="5humidityDisplay"></p>
+            </div>
+        </div>
+    </main>
 </body>
 <script src="./assets/js/script.js"></script>
 </html>
