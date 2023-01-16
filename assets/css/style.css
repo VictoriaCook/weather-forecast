@@ -1,7 +1,3 @@
-* {
-    
-}
-
 header {
     width: 100%;
     padding: 3em;
@@ -20,12 +16,12 @@ h1 {
 
 #greyLine {
     border-bottom: 3px solid lightgrey;
-    width: 285px;
+    width: 270px;
     /* position: absolute; */
     left: 50%;
     margin-left: 5px;
-    top: 0;
-    padding: 0.3%;
+    /* top: 5; */
+    padding: 0.5%;
 }
 
 input {
@@ -34,12 +30,25 @@ input {
     width: 260px;
 }
 
+aside {
+    width: 350px;
+}
+
 #getCity {
     background-color: #668cff;
     color: white;
     padding: 1%;
     border-radius: 8px;
     border: none; 
-    margin: 0.5%;
-    width: 285px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0.3%;
+    width: 270px;
+}
+
+#weatherData {
+    /* float: right; */
+    position: relative;
+    margin-left: 360px; 
+    margin-top: 20px;
 }
