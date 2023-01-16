@@ -1,12 +1,12 @@
 header {
     width: 100%;
-    padding: 3em;
     background-image: linear-gradient(to right, lightblue, darkblue);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 30px;
+    margin: 0;
 }
 
 h1 {
@@ -31,7 +31,10 @@ input {
 }
 
 aside {
-    width: 350px;
+    width: 20%;
+    margin: 0;
+    border: 0;
+    padding: 0;
 }
 
 #getCity {
@@ -48,6 +51,6 @@ aside {
 
 #weatherData {
     position: relative;
-    width: 600px;
+    width: 75%;
     float: right;
 }
