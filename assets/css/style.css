@@ -20,9 +20,26 @@ h1 {
 
 #greyLine {
     border-bottom: 3px solid lightgrey;
-    width: 250px;
+    width: 285px;
     /* position: absolute; */
     left: 50%;
-    margin-left: -3px;
+    margin-left: 5px;
     top: 0;
+    padding: 0.3%;
+}
+
+input {
+    padding: 1%;
+    margin: 0.5%;
+    width: 260px;
+}
+
+#getCity {
+    background-color: #668cff;
+    color: white;
+    padding: 1%;
+    border-radius: 8px;
+    border: none; 
+    margin: 0.5%;
+    width: 285px;
 }
