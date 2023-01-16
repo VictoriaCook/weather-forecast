@@ -47,8 +47,7 @@ aside {
 }
 
 #weatherData {
-    /* float: right; */
     position: relative;
-    margin-left: 360px; 
-    margin-top: 20px;
+    width: 600px;
+    float: right;
 }
