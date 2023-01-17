@@ -74,8 +74,8 @@ getBtn.addEventListener("click", getCoordinates);
 
 // API call URL: api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
-function getCoordinates() {
-    let cityName = getSearchBar.value;
+function getCoordinates(city) {
+    let cityName = city? city: getSearchBar.value;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     // check if item already exists before pushing
     if (!existingPastSearches.includes(cityName)) {
@@ -197,7 +197,7 @@ function displayCitySearch(cityName) {
             createButton = document.createElement('button');
             createButton.innerText = cityName;
             createButton.id = "pastSearchButtons";
-            createButton.addEventListener('click', getCoordinates); 
+            createButton.addEventListener('click', () => getCoordinates(cityName)); 
             getPastSearches.appendChild(createButton);
         // }    
         
