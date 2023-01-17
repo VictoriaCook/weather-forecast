@@ -136,7 +136,9 @@ function display5DayForecast(data) {
     let newDate1 = weather1.dt_txt;
     get1Date.innerText = `${newDate1}`;
     get1TempDisplay.innerText = `Temp: ${weather1.main.temp} degrees`;
-    get1WeatherImg.innerHTML = weather1.weather[0].icon;
+    iconUrl = `https://openweathermap.org/img/w/${weather1.weather[0].icon}.png`;
+    get1WeatherImg.setAttribute('src', iconUrl)
+    // get1WeatherImg.innerHTML = weather1.weather[0].icon;
     get1WindDisplay.innerHTML = `Wind: ${weather1.wind.speed} kph`;
     get1HumidityDisplay.innerHTML = `Humidity: ${weather1.main.humidity}%`;
 
@@ -145,7 +147,9 @@ function display5DayForecast(data) {
     let newDate2 = weather2.dt_txt;
     get2Date.innerText = `${newDate2}`;
     get2TempDisplay.innerText = `Temp: ${weather2.main.temp} degrees`;
-    get2WeatherImg.innerHTML = weather2.weather[0].icon;
+    iconUrl = `https://openweathermap.org/img/w/${weather2.weather[0].icon}.png`;
+    get2WeatherImg.setAttribute('src', iconUrl)
+    // get2WeatherImg.innerHTML = weather2.weather[0].icon;
     get2WindDisplay.innerHTML = `Wind: ${weather2.wind.speed} kph`;
     get2HumidityDisplay.innerHTML = `Humidity: ${weather2.main.humidity}%`;
 
@@ -154,7 +158,9 @@ function display5DayForecast(data) {
     let newDate3 = weather3.dt_txt;
     get3Date.innerText = `${newDate3}`;
     get3TempDisplay.innerText = `Temp: ${weather3.main.temp} degrees`;
-    get3WeatherImg.innerHTML = weather3.weather[0].icon;
+    iconUrl = `https://openweathermap.org/img/w/${weather3.weather[0].icon}.png`;
+    get3WeatherImg.setAttribute('src', iconUrl)
+    // get3WeatherImg.innerHTML = weather3.weather[0].icon;
     get3WindDisplay.innerHTML = `Wind: ${weather3.wind.speed} kph`;
     get3HumidityDisplay.innerHTML = `Humidity: ${weather3.main.humidity}%`;
 
@@ -163,7 +169,9 @@ function display5DayForecast(data) {
     let newDate4 = weather4.dt_txt;
     get4Date.innerText = `${newDate4}`;
     get4TempDisplay.innerText = `Temp: ${weather4.main.temp} degrees`;
-    get4WeatherImg.innerHTML = weather4.weather[0].icon;
+    iconUrl = `https://openweathermap.org/img/w/${weather4.weather[0].icon}.png`;
+    get4WeatherImg.setAttribute('src', iconUrl)
+    // get4WeatherImg.innerHTML = weather4.weather[0].icon;
     get4WindDisplay.innerHTML = `Wind: ${weather4.wind.speed} kph`;
     get4HumidityDisplay.innerHTML = `Humidity: ${weather4.main.humidity}%`;
 
@@ -172,7 +180,9 @@ function display5DayForecast(data) {
     let newDate5 = weather5.dt_txt;
     get5Date.innerText = `${newDate5}`;
     get5TempDisplay.innerText = `Temp: ${weather5.main.temp} degrees`;
-    get5WeatherImg.innerHTML = weather5.weather[0].icon;
+    iconUrl = `https://openweathermap.org/img/w/${weather5.weather[0].icon}.png`;
+    get5WeatherImg.setAttribute('src', iconUrl)
+    // get5WeatherImg.innerHTML = weather5.weather[0].icon;
     get5WindDisplay.innerHTML = `Wind: ${weather5.wind.speed} kph`;
     get5HumidityDisplay.innerHTML = `Humidity: ${weather5.main.humidity}%`;
 }
