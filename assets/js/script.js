@@ -1,6 +1,7 @@
 const getBtn = document.getElementById("getCity");
 var cityName = "Melbourne"
 const APIKEY = "825021d5522a53177b5a5f2b72cf874e"
+const getSearchBar = document.getElementById("searchBar");
 
 // Get current weather div ids to populate with weather data
 
@@ -60,10 +61,13 @@ const  get5HumidityDisplay = document.getElementById("5humidityDisplay");
 
 getBtn.addEventListener("click", getCoordinates);
 
+// Coordinates API call URL: http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid={API key}
+
 // API call URL: api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 function getCoordinates() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q${cityName}&appid=${APIKEY}`
+    cityName = getSearchBar.value;
+    let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIKEY}`
     let result = fetch(apiUrl)
     .then ((result) => {
         console.log(result);
