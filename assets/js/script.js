@@ -77,6 +77,7 @@ getBtn.addEventListener("click", getCoordinates);
 function getCoordinates() {
     let cityName = getSearchBar.value;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
+    // check if item already exists before pushing
     existingPastSearches.push(cityName);
     localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
 
@@ -93,6 +94,7 @@ function getCoordinates() {
     })
     .then ((data) => {
         getWeather()
+        displayCitySearch(cityName)
     })
 
 
