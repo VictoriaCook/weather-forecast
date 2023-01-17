@@ -74,14 +74,16 @@ getBtn.addEventListener("click", getCoordinates);
 
 // API call URL: api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
-function getCoordinates(city) {
-    let cityName = city? city: getSearchBar.value;
+function getCoordinates(event) {
+    console.log(event)
+    let cityName = event.target.innerText === 'Search'? getSearchBar.value: event.target.innerText;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     // check if item already exists before pushing
+    let updatedSearchHistory = [...existingPastSearches];
     if (!existingPastSearches.includes(cityName)) {
-        existingPastSearches.push(cityName);
+        updatedSearchHistory.push(cityName);
     }
-    localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
+    localStorage.setItem('pastsearches', JSON.stringify(updatedSearchHistory));
 
     let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`
     let result = fetch(apiUrl)
@@ -134,9 +136,15 @@ function displayCurrentWeather(data) {
 
 function display5DayForecast(data) {
     // Add grey backgrounds back to 5-day forecast display boxes
-    let getGreyBoxes= document.getElementsByClassName(".greyBox");
-    getGreyBoxes.classList.remove("hide");
-    
+    getDay1Container.classList.remove("hide");
+    getDay2Container.classList.remove("hide");
+    getDay3Container.classList.remove("hide");
+    getDay4Container.classList.remove("hide");
+    getDay5Container.classList.remove("hide");
+
+    // Add border back to current weather div
+    getCurrentContainer.classList.remove("hide");
+
     // Display day 1 data
     
     let cityTitle = data.city.name;
@@ -201,7 +209,7 @@ function displayCitySearch(cityName) {
             createButton = document.createElement('button');
             createButton.innerText = cityName;
             createButton.id = "pastSearchButtons";
-            createButton.addEventListener('click', () => getCoordinates(cityName)); 
+            createButton.addEventListener('click', getCoordinates); 
             getPastSearches.appendChild(createButton);
         // }    
         

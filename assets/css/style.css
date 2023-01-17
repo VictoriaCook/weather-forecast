@@ -78,6 +78,11 @@ h4 {
     color: white;
 }
 
-/* .hide {
+.hide {
     display: none;
-} */
+}
+
+#currentContainer {
+    border: solid darkgrey;
+    margin-top: 10px;
+}
