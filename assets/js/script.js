@@ -96,7 +96,9 @@ function getCoordinates() {
     })
     .then ((data) => {
         getWeather()
-        displayCitySearch(cityName)
+        if (!existingPastSearches.includes(cityName)) {
+            displayCitySearch(cityName);
+        } 
     })
 
 
