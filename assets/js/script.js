@@ -133,6 +133,10 @@ function displayCurrentWeather(data) {
 }
 
 function display5DayForecast(data) {
+    // Add grey backgrounds back to 5-day forecast display boxes
+    let getGreyBoxes= document.getElementsByClassName(".greyBox");
+    getGreyBoxes.classList.remove("hide");
+    
     // Display day 1 data
     
     let cityTitle = data.city.name;
