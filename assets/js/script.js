@@ -6,6 +6,7 @@ const APIKEY = "825021d5522a53177b5a5f2b72cf874e"
 const getSearchBar = document.getElementById("searchBar");
 var latitude;
 var longitude;
+let weather;
 
 // Get current weather div ids to populate with weather data
 
@@ -106,7 +107,7 @@ async function getWeather() {
 
 function displayCurrentWeather(data) {
     let cityTitle = data.city.name;
-    let weather = data.list[1];
+    weather = data.list[1];
     let todaysDate = weather.dt_txt;
     getCityDisplay.innerText = `${cityTitle} today (${todaysDate})`;
     getTempDisplay.innerText = `Temp: ${weather.main.temp} degrees`;
@@ -117,17 +118,33 @@ function displayCurrentWeather(data) {
 }
 
 function display5DayForecast(data) {
+    // Display day 1 data
+    
     let cityTitle = data.city.name;
-    let weather = data.list[7];
-    let newDate = weather.dt_txt;
-    get1Date.innerText = `${newDate}`;
-    get1TempDisplay.innerText = `Temp: ${weather.main.temp} degrees`;
-    get1WeatherImg.innerHTML = weather.weather[0].icon;
-    get1WindDisplay.innerHTML = `Wind: ${weather.wind.speed} kph`;
-    get1HumidityDisplay.innerHTML = `Humidity: ${weather.main.humidity}%`;
+    let weather1 = data.list[7];
+    let newDate1 = weather1.dt_txt;
+    get1Date.innerText = `${newDate1}`;
+    get1TempDisplay.innerText = `Temp: ${weather1.main.temp} degrees`;
+    get1WeatherImg.innerHTML = weather1.weather[0].icon;
+    get1WindDisplay.innerHTML = `Wind: ${weather1.wind.speed} kph`;
+    get1HumidityDisplay.innerHTML = `Humidity: ${weather1.main.humidity}%`;
+
+    // Display day 2 data
+    let weather2 = data.list[13];
+    let newDate2 = weather2.dt_txt;
+    get2Date.innerText = `${newDate2}`;
+    get2TempDisplay.innerText = `Temp: ${weather2.main.temp} degrees`;
+    get2WeatherImg.innerHTML = weather2.weather[0].icon;
+    get2WindDisplay.innerHTML = `Wind: ${weather2.wind.speed} kph`;
+    get2HumidityDisplay.innerHTML = `Humidity: ${weather2.main.humidity}%`;
 }
 
-
+// const  getDay2Container= document.getElementById("day2");
+// const  get2Date = document.getElementById("2date");
+// const  get2WeatherImg = document.getElementById("2weatherImg");
+// const  get2TempDisplay = document.getElementById("2tempDisplay");
+// const  get2WindDisplay = document.getElementById("2windDisplay");
+// const  get2HumidityDisplay = document.getElementById("2humidityDisplay");
 
 // today's date at 12pm = data.list[2]
 // = data.list[2].main
