@@ -113,16 +113,25 @@ function displayCurrentWeather(data) {
     getCurrentWeatherImg.innerHTML = weather.weather[0].icon;
     getWindDisplay.innerHTML = `Wind: ${weather.wind.speed} kph`;
     getHumidityDisplay.innerHTML = `Humidity: ${weather.main.humidity}%`;
+    display5DayForecast(data);
 }
+
+function display5DayForecast(data) {
+    let cityTitle = data.city.name;
+    let weather = data.list[7];
+    let newDate = weather.dt_txt;
+    get1Date.innerText = `${newDate}`;
+    get1TempDisplay.innerText = `Temp: ${weather.main.temp} degrees`;
+    get1WeatherImg.innerHTML = weather.weather[0].icon;
+    get1WindDisplay.innerHTML = `Wind: ${weather.wind.speed} kph`;
+    get1HumidityDisplay.innerHTML = `Humidity: ${weather.main.humidity}%`;
+}
+
+
+
 // today's date at 12pm = data.list[2]
 // = data.list[2].main
 
-// const getCurrentContainer = document.getElementById("currentContainer");
-// const getCityDisplay = document.getElementById("cityDisplay");
-// const getCurrentWeatherImg = document.getElementById("currentWeatherImg");
-// const getTempDisplay = document.getElementById("tempDisplay");
-// const getWindDisplay = document.getElementById("windDisplay");
-// const getHumidityDisplay = document.getElementById("humidityDisplay");
 
 // 0-5 is today's date
 // increments of 6
