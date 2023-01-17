@@ -1,7 +1,7 @@
 // Set up variables for API calls
 
 const getBtn = document.getElementById("getCity");
-var cityName = ""
+// var cityName = ""
 const APIKEY = "825021d5522a53177b5a5f2b72cf874e"
 const getSearchBar = document.getElementById("searchBar");
 var latitude;
@@ -75,8 +75,11 @@ getBtn.addEventListener("click", getCoordinates);
 // API call URL: api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 function getCoordinates() {
-    cityName = getSearchBar.value;
-    localStorage.setItem("city", cityName);
+    let cityName = getSearchBar.value;
+    let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
+    existingPastSearches.push(cityName);
+    localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
+
     let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`
     let result = fetch(apiUrl)
     .then ((result) => {
@@ -171,21 +174,36 @@ function display5DayForecast(data) {
     get5HumidityDisplay.innerHTML = `Humidity: ${weather5.main.humidity}%`;
 }
 
-function displayPastSearches() {
-    let pastSearch = {
-        cityName ,
-    };
-    let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
-    existingPastSearches.push(pastSearch);
-    localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
-
-    for (let i = 0; i < 4; i++) {
+function displayCitySearch(cityName) {
+    // for (let i = 0; i < existingPastSearches.length; i++) {
         createButton = document.createElement('button');
         createButton.innerText = cityName;
         createButton.id = "pastSearchButtons";
         createButton.addEventListener('click', getCoordinates); 
         getPastSearches.appendChild(createButton);
-}}
+    // }
+}
+
+function displayPastSearches() {
+    // let pastSearch = cityName;
+    let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
+    if (existingPastSearches.length > 0) {
+        existingPastSearches.forEach(function(city) {
+            displayCitySearch(city)
+        }) 
+    }
+    // existingPastSearches.push(pastSearch);
+    // localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
+
+   
+        // createButton = document.createElement('button');
+        // createButton.innerText = cityName;
+        // createButton.id = "pastSearchButtons";
+        // createButton.addEventListener('click', getCoordinates); 
+        // getPastSearches.appendChild(createButton);
+}
+
+displayPastSearches();
 
 // today's date at 12pm = data.list[2]
 // = data.list[2].main
