@@ -79,10 +79,11 @@ function getCoordinates(event) {
     let cityName = event.target.innerText === 'Search'? getSearchBar.value: event.target.innerText;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     // check if item already exists before pushing
+    let updatedSearchHistory = [...existingPastSearches];
     if (!existingPastSearches.includes(cityName)) {
-        existingPastSearches.push(cityName);
+        updatedSearchHistory.push(cityName);
     }
-    localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
+    localStorage.setItem('pastsearches', JSON.stringify(updatedSearchHistory));
 
     let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`
     let result = fetch(apiUrl)
