@@ -141,7 +141,10 @@ function display5DayForecast(data) {
     getDay3Container.classList.remove("hide");
     getDay4Container.classList.remove("hide");
     getDay5Container.classList.remove("hide");
-    
+
+    // Add border back to current weather div
+    getCurrentContainer.classList.remove("hide");
+
     // Display day 1 data
     
     let cityTitle = data.city.name;
