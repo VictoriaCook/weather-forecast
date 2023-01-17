@@ -52,7 +52,6 @@ aside {
 #weatherData {
     position: relative;
     width: 75%;
-    float: right;
 }
 
 #pastSearchButtons {
@@ -65,4 +64,17 @@ aside {
     margin-bottom: 2%;
     margin-left: 0.3%;
     width: 270px;
+}
+
+#day1, #day2, #day3, #day4, #day5 {
+    background-color: grey;
+    /* display: none; */
+}
+
+#day1 p, #day2 p, #day3 p, #day4 p, #day5 p {
+    color: white;
+}
+
+h4 {
+    color: white;
 }
