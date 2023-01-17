@@ -78,7 +78,9 @@ function getCoordinates() {
     let cityName = getSearchBar.value;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     // check if item already exists before pushing
-    existingPastSearches.push(cityName);
+    if (!existingPastSearches.includes(cityName)) {
+        existingPastSearches.push(cityName);
+    }
     localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
 
     let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`
