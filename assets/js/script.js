@@ -190,8 +190,7 @@ function display5DayForecast(data) {
 }
 
 function displayCitySearch(cityName) {
-    // for (let i = 0; i < existingPastSearches.length; i++) {
-    //     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || [];     
+    // let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || [];     
     // if (!existingPastSearches.includes(cityName)) {
             createButton = document.createElement('button');
             createButton.innerText = cityName;
