@@ -155,6 +155,15 @@ function display5DayForecast(data) {
     get4WeatherImg.innerHTML = weather4.weather[0].icon;
     get4WindDisplay.innerHTML = `Wind: ${weather4.wind.speed} kph`;
     get4HumidityDisplay.innerHTML = `Humidity: ${weather4.main.humidity}%`;
+
+    // Display day 5 data
+    let weather5 = data.list[39];
+    let newDate5 = weather5.dt_txt;
+    get5Date.innerText = `${newDate5}`;
+    get5TempDisplay.innerText = `Temp: ${weather5.main.temp} degrees`;
+    get5WeatherImg.innerHTML = weather5.weather[0].icon;
+    get5WindDisplay.innerHTML = `Wind: ${weather5.wind.speed} kph`;
+    get5HumidityDisplay.innerHTML = `Humidity: ${weather5.main.humidity}%`;
 }
 
 // Get day 3 forecast ids to populate with weather data
