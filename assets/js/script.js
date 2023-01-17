@@ -72,6 +72,7 @@ getBtn.addEventListener("click", getCoordinates);
 
 function getCoordinates() {
     cityName = getSearchBar.value;
+    localStorage.setItem("city", cityName);
     let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`
     let result = fetch(apiUrl)
     .then ((result) => {
