@@ -121,7 +121,7 @@ function display5DayForecast(data) {
     // Display day 1 data
     
     let cityTitle = data.city.name;
-    let weather1 = data.list[7];
+    let weather1 = data.list[9];
     let newDate1 = weather1.dt_txt;
     get1Date.innerText = `${newDate1}`;
     get1TempDisplay.innerText = `Temp: ${weather1.main.temp} degrees`;
@@ -130,21 +130,52 @@ function display5DayForecast(data) {
     get1HumidityDisplay.innerHTML = `Humidity: ${weather1.main.humidity}%`;
 
     // Display day 2 data
-    let weather2 = data.list[13];
+    let weather2 = data.list[17];
     let newDate2 = weather2.dt_txt;
     get2Date.innerText = `${newDate2}`;
     get2TempDisplay.innerText = `Temp: ${weather2.main.temp} degrees`;
     get2WeatherImg.innerHTML = weather2.weather[0].icon;
     get2WindDisplay.innerHTML = `Wind: ${weather2.wind.speed} kph`;
     get2HumidityDisplay.innerHTML = `Humidity: ${weather2.main.humidity}%`;
+
+    // Display day 3 data
+    let weather3 = data.list[25];
+    let newDate3 = weather3.dt_txt;
+    get3Date.innerText = `${newDate3}`;
+    get3TempDisplay.innerText = `Temp: ${weather3.main.temp} degrees`;
+    get3WeatherImg.innerHTML = weather3.weather[0].icon;
+    get3WindDisplay.innerHTML = `Wind: ${weather3.wind.speed} kph`;
+    get3HumidityDisplay.innerHTML = `Humidity: ${weather3.main.humidity}%`;
 }
 
-// const  getDay2Container= document.getElementById("day2");
-// const  get2Date = document.getElementById("2date");
-// const  get2WeatherImg = document.getElementById("2weatherImg");
-// const  get2TempDisplay = document.getElementById("2tempDisplay");
-// const  get2WindDisplay = document.getElementById("2windDisplay");
-// const  get2HumidityDisplay = document.getElementById("2humidityDisplay");
+// Get day 3 forecast ids to populate with weather data
+
+// const  getDay3Container= document.getElementById("day3");
+// const  get3Date = document.getElementById("3date");
+// const  get3WeatherImg = document.getElementById("3weatherImg");
+// const  get3TempDisplay = document.getElementById("3tempDisplay");
+// const  get3WindDisplay = document.getElementById("3windDisplay");
+// const  get3HumidityDisplay = document.getElementById("3humidityDisplay");
+
+// Get day 4 forecast ids to populate with weather data
+
+// const  getDay4Container= document.getElementById("day4");
+// const  get4Date = document.getElementById("4date");
+// const  get4WeatherImg = document.getElementById("4weatherImg");
+// const  get4TempDisplay = document.getElementById("4tempDisplay");
+// const  get4WindDisplay = document.getElementById("4windDisplay");
+// const  get4HumidityDisplay = document.getElementById("4humidityDisplay");
+
+// Get day 5 forecast ids to populate with weather data
+
+// const  getDay5Container= document.getElementById("day5");
+// const  get5Date = document.getElementById("5date");
+// const  get5WeatherImg = document.getElementById("5weatherImg");
+// const  get5TempDisplay = document.getElementById("5tempDisplay");
+// const  get5WindDisplay = document.getElementById("5windDisplay");
+// const  get5HumidityDisplay = document.getElementById("5humidityDisplay");
+
+
 
 // today's date at 12pm = data.list[2]
 // = data.list[2].main
@@ -153,78 +184,6 @@ function display5DayForecast(data) {
 // 0-5 is today's date
 // increments of 6
 
-/*
-
-2
-: 
-clouds
-: 
-{all: 66}
-dt
-: 
-1673956800
-dt_txt
-: 
-"2023-01-17 12:00:00"
-main
-: 
-feels_like
-: 
-28.12
-grnd_level
-: 
-1008
-humidity
-: 
-43
-pressure
-: 
-1010
-sea_level
-: 
-1010
-temp
-: 
-28.25
-temp_kf
-: 
-3.88
-temp_max
-: 
-28.25
-temp_min
-: 
-24.37
-[[Prototype]]
-: 
-Object
-pop
-: 
-0
-sys
-: 
-{pod: 'n'}
-visibility
-: 
-10000
-weather
-: 
-[{…}]
-wind
-: 
-{speed: 5.59, deg: 212, gust: 10.36}
-[[Prototype]]
-: 
-Object
-
-*/
-
-
-// async function getCoordinates() {
-//     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q${cityName}&appid=${APIKEY}`
-//     let result = await fetch(apiUrl)
-//     console.log(result);
-// }
 
 // Could've created the divs with a for loop to create and populate
 // for (let i = 0; i < 4; i++) {
