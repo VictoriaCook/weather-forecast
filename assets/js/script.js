@@ -74,8 +74,9 @@ getBtn.addEventListener("click", getCoordinates);
 
 // API call URL: api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
-function getCoordinates(city) {
-    let cityName = city? city: getSearchBar.value;
+function getCoordinates(event) {
+    console.log(event)
+    let cityName = event.target.innerText === 'Search'? getSearchBar.value: event.target.innerText;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     // check if item already exists before pushing
     if (!existingPastSearches.includes(cityName)) {
@@ -134,7 +135,7 @@ function displayCurrentWeather(data) {
 
 function display5DayForecast(data) {
     // Add grey backgrounds back to 5-day forecast display boxes
-    let getGreyBoxes= document.getElementsByClassName(".greyBox");
+    let getGreyBoxes= document.querySelector(".greyBox");
     getGreyBoxes.classList.remove("hide");
     
     // Display day 1 data
@@ -201,7 +202,7 @@ function displayCitySearch(cityName) {
             createButton = document.createElement('button');
             createButton.innerText = cityName;
             createButton.id = "pastSearchButtons";
-            createButton.addEventListener('click', () => getCoordinates(cityName)); 
+            createButton.addEventListener('click', getCoordinates); 
             getPastSearches.appendChild(createButton);
         // }    
         
