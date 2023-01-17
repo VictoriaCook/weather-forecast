@@ -1,7 +1,7 @@
 // Set up variables for API calls
 
 const getBtn = document.getElementById("getCity");
-var cityName = "Melbourne"
+var cityName = ""
 const APIKEY = "825021d5522a53177b5a5f2b72cf874e"
 const getSearchBar = document.getElementById("searchBar");
 var latitude;
@@ -61,6 +61,10 @@ const  get5WeatherImg = document.getElementById("5weatherImg");
 const  get5TempDisplay = document.getElementById("5tempDisplay");
 const  get5WindDisplay = document.getElementById("5windDisplay");
 const  get5HumidityDisplay = document.getElementById("5humidityDisplay");
+
+// Set up variable for past searches
+
+const getPastSearches = document.getElementById("pastSearches");
 
 // Add event listener to search button
 
@@ -167,6 +171,20 @@ function display5DayForecast(data) {
     get5HumidityDisplay.innerHTML = `Humidity: ${weather5.main.humidity}%`;
 }
 
+function displayPastSearches() {
+    let pastSearch = {
+        cityName ,
+    };
+    let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
+    existingPastSearches.push(pastSearch);
+    localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
+
+    for (let i = 0; i < 4; i++) {
+        createButton = document.createElement('button');
+        createButton.id = "pastSearchButtons";
+        createButton.addEventListener('click', getCoordinates); 
+        getPastSearches.appendChild(createButton);
+}}
 
 // today's date at 12pm = data.list[2]
 // = data.list[2].main
@@ -181,4 +199,4 @@ function display5DayForecast(data) {
 //     createButton.classList.add('mc-buttons');
 //     createButton.addEventListener('click', showQuestions); 
 //     quiz.appendChild(createButton);
-// }
+// 

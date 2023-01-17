@@ -54,3 +54,15 @@ aside {
     width: 75%;
     float: right;
 }
+
+#pastSearchButtons {
+    background-color: grey;
+    color: white;
+    padding: 1%;
+    border-radius: 8px;
+    border: none; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0.3%;
+    width: 270px;
+}
