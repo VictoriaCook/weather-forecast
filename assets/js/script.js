@@ -71,7 +71,7 @@ getBtn.addEventListener("click", getCoordinates);
 
 function getCoordinates() {
     cityName = getSearchBar.value;
-    let apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIKEY}`
+    let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIKEY}`
     let result = fetch(apiUrl)
     .then ((result) => {
         console.log(result);
@@ -86,7 +86,9 @@ function getCoordinates() {
 
 }
 
-
+function getWeather() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${APIKEY}`
+}
 
 // async function getCoordinates() {
 //     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q${cityName}&appid=${APIKEY}`
