@@ -1,7 +1,11 @@
+// Set up variables for API calls
+
 const getBtn = document.getElementById("getCity");
 var cityName = "Melbourne"
 const APIKEY = "825021d5522a53177b5a5f2b72cf874e"
 const getSearchBar = document.getElementById("searchBar");
+var latitude;
+var longitude;
 
 // Get current weather div ids to populate with weather data
 
@@ -77,9 +81,11 @@ function getCoordinates() {
         console.log(data);
         return data;
     })
-    
+    latitude = result.json().lat;
+    longitude = result.json().lon;     
 
 }
+
 
 
 // async function getCoordinates() {
