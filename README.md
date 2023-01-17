@@ -13,7 +13,7 @@ Searches are saved locally so that the user can exit the application and return 
 
 ## Mock-Up
 
-The following image shows the web application's appearance and functionality:
+The following image shows the web application's appearance and functionality with some example past searches already loaded to demonstrate:
 
 ![The Weather Forecast app loads with a search bar and clickable past searches.](./assets/MockUp.png)
 
