@@ -106,10 +106,11 @@ async function getWeather() {
 
 function displayCurrentWeather(data) {
     let cityTitle = data.city.name;
-    let weather = data.list[2];
-    getCityDisplay.innerText = `${cityTitle} today`;
+    let weather = data.list[1];
+    let todaysDate = weather.dt_txt;
+    getCityDisplay.innerText = `${cityTitle} today (${todaysDate})`;
     getTempDisplay.innerText = `Temp: ${weather.main.temp} degrees`;
-    // getCurrentWeatherImg.innerHTML = 
+    getCurrentWeatherImg.innerHTML = weather.weather[0].icon;
     getWindDisplay.innerHTML = `Wind: ${weather.wind.speed} kph`;
     getHumidityDisplay.innerHTML = `Humidity: ${weather.main.humidity}%`;
 }
