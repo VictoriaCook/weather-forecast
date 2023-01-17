@@ -15,7 +15,7 @@ Searches are saved locally so that the user can exit the application and return 
 
 The following image shows the web application's appearance and functionality:
 
-![The Weather Forecast app loads with a search bar and clickable past searches.](./assets/04-web-apis-homework-demo.gif)
+![The Weather Forecast app loads with a search bar and clickable past searches.](./assets/MockUp.png)
 
 ## Deployed URL
 
