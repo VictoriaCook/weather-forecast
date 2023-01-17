@@ -71,24 +71,127 @@ getBtn.addEventListener("click", getCoordinates);
 
 function getCoordinates() {
     cityName = getSearchBar.value;
-    let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${APIKEY}`
+    let apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${APIKEY}`
     let result = fetch(apiUrl)
     .then ((result) => {
-        console.log(result);
         return result.json();
     })
     .then ((data) => {
         console.log(data);
+        latitude = data[0].lat;
+        longitude = data[0].lon;    
         return data;
     })
-    latitude = result.json().lat;
-    longitude = result.json().lon;     
+    .then ((data) => {
+        getWeather()
+    })
+
 
 }
 
-function getWeather() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${APIKEY}`
+async function getWeather() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${APIKEY}&units=metric`
+    let result = await fetch(apiUrl)
+    let data = await result.json();
+    // .then ((result) => {
+    //     return result.json();
+    // })
+    // .then ((data) => {
+    //     console.log(data); 
+    //     return data;
+    // })
+    console.log(data);
+    displayCurrentWeather(data);
 }
+
+function displayCurrentWeather(data) {
+    let cityTitle = data.city.name;
+    let weather = data.list[2];
+    getCityDisplay.innerText = `${cityTitle} today`;
+    getTempDisplay.innerText = `Temp: ${weather.main.temp} degrees`;
+    // getCurrentWeatherImg.innerHTML = 
+    getWindDisplay.innerHTML = `Wind: ${weather.wind.speed} kph`;
+    getHumidityDisplay.innerHTML = `Humidity: ${weather.main.humidity}%`;
+}
+// today's date at 12pm = data.list[2]
+// = data.list[2].main
+
+// const getCurrentContainer = document.getElementById("currentContainer");
+// const getCityDisplay = document.getElementById("cityDisplay");
+// const getCurrentWeatherImg = document.getElementById("currentWeatherImg");
+// const getTempDisplay = document.getElementById("tempDisplay");
+// const getWindDisplay = document.getElementById("windDisplay");
+// const getHumidityDisplay = document.getElementById("humidityDisplay");
+
+// 0-5 is today's date
+// increments of 6
+
+/*
+
+2
+: 
+clouds
+: 
+{all: 66}
+dt
+: 
+1673956800
+dt_txt
+: 
+"2023-01-17 12:00:00"
+main
+: 
+feels_like
+: 
+28.12
+grnd_level
+: 
+1008
+humidity
+: 
+43
+pressure
+: 
+1010
+sea_level
+: 
+1010
+temp
+: 
+28.25
+temp_kf
+: 
+3.88
+temp_max
+: 
+28.25
+temp_min
+: 
+24.37
+[[Prototype]]
+: 
+Object
+pop
+: 
+0
+sys
+: 
+{pod: 'n'}
+visibility
+: 
+10000
+weather
+: 
+[{…}]
+wind
+: 
+{speed: 5.59, deg: 212, gust: 10.36}
+[[Prototype]]
+: 
+Object
+
+*/
+
 
 // async function getCoordinates() {
 //     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q${cityName}&appid=${APIKEY}`
