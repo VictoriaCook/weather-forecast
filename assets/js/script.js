@@ -181,6 +181,7 @@ function displayPastSearches() {
 
     for (let i = 0; i < 4; i++) {
         createButton = document.createElement('button');
+        createButton.innerText = cityName;
         createButton.id = "pastSearchButtons";
         createButton.addEventListener('click', getCoordinates); 
         getPastSearches.appendChild(createButton);
