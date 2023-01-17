@@ -121,7 +121,8 @@ function displayCurrentWeather(data) {
     let todaysDate = weather.dt_txt;
     getCityDisplay.innerText = `${cityTitle} today (${todaysDate})`;
     getTempDisplay.innerText = `Temp: ${weather.main.temp} degrees`;
-    getCurrentWeatherImg.innerHTML = weather.weather[0].icon;
+    iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+    getCurrentWeatherImg.setAttribute('src', iconUrl)
     getWindDisplay.innerHTML = `Wind: ${weather.wind.speed} kph`;
     getHumidityDisplay.innerHTML = `Humidity: ${weather.main.humidity}%`;
     display5DayForecast(data);
