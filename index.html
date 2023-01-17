@@ -5,9 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <button id="getCity">Generate</button>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <aside>
+            <div>
+                <h2>Search for a City:</h2>
+                <input type="text" id="searchBar" placeholder="San Diego"> <br>
+                <button id="getCity">Search</button>
+            </div>
+            <div id="greyLine"></div>
+            <div id="pastSearches"></div>
+        </aside>
+        <div id="weatherDataContainer">
+            <div id="currentContainer">
+                <h2 id="cityDisplay"></h2>
+                <img id="currentWeatherImg"></img>
+                <p id="tempDisplay"></p>
+                <p id="windDisplay"></p>
+                <p id="humidityDisplay"></p>
+            </div>
+            <div id="5dayContainer">
+                <h3>5 Day Forecast:</h3>
+                <div id="day1" class="greyBox hide">
+                    <h4 id="1date"></h4>
+                    <img id="1weatherImg"></img>
+                    <p id="1tempDisplay"></p>
+                    <p id="1windDisplay"></p>
+                    <p id="1humidityDisplay"></p>
+                </div>
+                <div id="day2" class="greyBox hide">
+                    <h4 id="2date"></h4>
+                    <img id="2weatherImg"></img>
+                    <p id="2tempDisplay"></p>
+                    <p id="2windDisplay"></p>
+                    <p id="2humidityDisplay"></p>
+                </div>
+                <div id="day3" class="greyBox hide">
+                    <h4 id="3date"></h4>
+                    <img id="3weatherImg"></img>
+                    <p id="3tempDisplay"></p>
+                    <p id="3windDisplay"></p>
+                    <p id="3humidityDisplay"></p>
+                </div>
+                <div id="day4" class="greyBox hide">
+                    <h4 id="4date"></h4>
+                    <img id="4weatherImg"></img>
+                    <p id="4tempDisplay"></p>
+                    <p id="4windDisplay"></p>
+                    <p id="4humidityDisplay"></p>
+                </div>
+                <div id="day5" class="greyBox hide">
+                    <h4 id="5date"></h4>
+                    <img id="5weatherImg"></img>
+                    <p id="5tempDisplay"></p>
+                    <p id="5windDisplay"></p>
+                    <p id="5humidityDisplay"></p>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 <script src="./assets/js/script.js"></script>
 </html>

@@ -1,0 +1,83 @@
+header {
+    width: 100%;
+    background-image: linear-gradient(to right, lightblue, darkblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+#greyLine {
+    border-bottom: 3px solid lightgrey;
+    width: 270px;
+    /* position: absolute; */
+    left: 50%;
+    margin-left: 5px;
+    /* top: 5; */
+    padding: 0.5%;
+}
+
+input {
+    padding: 1%;
+    margin: 0.5%;
+    width: 260px;
+}
+
+aside {
+    width: 20%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+#getCity {
+    background-color: #668cff;
+    color: white;
+    padding: 1%;
+    border-radius: 8px;
+    border: none; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0.3%;
+    width: 270px;
+}
+
+#weatherData {
+    position: relative;
+    width: 75%;
+}
+
+#pastSearchButtons {
+    background-color: grey;
+    color: white;
+    padding: 1%;
+    border-radius: 8px;
+    border: none; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0.3%;
+    width: 270px;
+}
+
+#day1, #day2, #day3, #day4, #day5 {
+    background-color: grey;
+}
+
+#day1 p, #day2 p, #day3 p, #day4 p, #day5 p {
+    color: white;
+}
+
+h4 {
+    color: white;
+}
+
+/* .hide {
+    display: none;
+} */
