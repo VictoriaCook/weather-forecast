@@ -1,7 +1,6 @@
 // Set up variables for API calls
 
 const getBtn = document.getElementById("getCity");
-// var cityName = ""
 const APIKEY = "825021d5522a53177b5a5f2b72cf874e"
 const getSearchBar = document.getElementById("searchBar");
 var latitude;
@@ -70,12 +69,9 @@ const getPastSearches = document.getElementById("pastSearches");
 
 getBtn.addEventListener("click", getCoordinates);
 
-// Coordinates API call URL: http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid={API key}
-
-// API call URL: api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+// Function to call API to get coordinates
 
 function getCoordinates(event) {
-    console.log(event)
     let cityName = event.target.innerText === 'Search'? getSearchBar.value: event.target.innerText;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     // check if item already exists before pushing
@@ -91,7 +87,6 @@ function getCoordinates(event) {
         return result.json();
     })
     .then ((data) => {
-        console.log(data);
         latitude = data[0].lat;
         longitude = data[0].lon;    
         return data;
@@ -102,22 +97,14 @@ function getCoordinates(event) {
             displayCitySearch(cityName);
         } 
     })
-
-
 }
+
+// Function to get weather data
 
 async function getWeather() {
     let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${APIKEY}&units=metric`
     let result = await fetch(apiUrl)
     let data = await result.json();
-    // .then ((result) => {
-    //     return result.json();
-    // })
-    // .then ((data) => {
-    //     console.log(data); 
-    //     return data;
-    // })
-    console.log(data);
     displayCurrentWeather(data);
 }
 
@@ -154,7 +141,6 @@ function display5DayForecast(data) {
     get1TempDisplay.innerText = `Temp: ${weather1.main.temp} degrees`;
     iconUrl = `https://openweathermap.org/img/w/${weather1.weather[0].icon}.png`;
     get1WeatherImg.setAttribute('src', iconUrl)
-    // get1WeatherImg.innerHTML = weather1.weather[0].icon;
     get1WindDisplay.innerHTML = `Wind: ${weather1.wind.speed} kph`;
     get1HumidityDisplay.innerHTML = `Humidity: ${weather1.main.humidity}%`;
 
@@ -165,7 +151,6 @@ function display5DayForecast(data) {
     get2TempDisplay.innerText = `Temp: ${weather2.main.temp} degrees`;
     iconUrl = `https://openweathermap.org/img/w/${weather2.weather[0].icon}.png`;
     get2WeatherImg.setAttribute('src', iconUrl)
-    // get2WeatherImg.innerHTML = weather2.weather[0].icon;
     get2WindDisplay.innerHTML = `Wind: ${weather2.wind.speed} kph`;
     get2HumidityDisplay.innerHTML = `Humidity: ${weather2.main.humidity}%`;
 
@@ -176,7 +161,6 @@ function display5DayForecast(data) {
     get3TempDisplay.innerText = `Temp: ${weather3.main.temp} degrees`;
     iconUrl = `https://openweathermap.org/img/w/${weather3.weather[0].icon}.png`;
     get3WeatherImg.setAttribute('src', iconUrl)
-    // get3WeatherImg.innerHTML = weather3.weather[0].icon;
     get3WindDisplay.innerHTML = `Wind: ${weather3.wind.speed} kph`;
     get3HumidityDisplay.innerHTML = `Humidity: ${weather3.main.humidity}%`;
 
@@ -187,7 +171,6 @@ function display5DayForecast(data) {
     get4TempDisplay.innerText = `Temp: ${weather4.main.temp} degrees`;
     iconUrl = `https://openweathermap.org/img/w/${weather4.weather[0].icon}.png`;
     get4WeatherImg.setAttribute('src', iconUrl)
-    // get4WeatherImg.innerHTML = weather4.weather[0].icon;
     get4WindDisplay.innerHTML = `Wind: ${weather4.wind.speed} kph`;
     get4HumidityDisplay.innerHTML = `Humidity: ${weather4.main.humidity}%`;
 
@@ -198,56 +181,26 @@ function display5DayForecast(data) {
     get5TempDisplay.innerText = `Temp: ${weather5.main.temp} degrees`;
     iconUrl = `https://openweathermap.org/img/w/${weather5.weather[0].icon}.png`;
     get5WeatherImg.setAttribute('src', iconUrl)
-    // get5WeatherImg.innerHTML = weather5.weather[0].icon;
     get5WindDisplay.innerHTML = `Wind: ${weather5.wind.speed} kph`;
     get5HumidityDisplay.innerHTML = `Humidity: ${weather5.main.humidity}%`;
 }
 
 function displayCitySearch(cityName) {
-    // let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || [];     
-    // if (!existingPastSearches.includes(cityName)) {
             createButton = document.createElement('button');
             createButton.innerText = cityName;
             createButton.id = "pastSearchButtons";
             createButton.addEventListener('click', getCoordinates); 
             getPastSearches.appendChild(createButton);
-        // }    
         
-    // }
 }
 
 function displayPastSearches() {
-    // let pastSearch = cityName;
     let existingPastSearches = JSON.parse(localStorage.getItem('pastsearches')) || []; 
     if (existingPastSearches.length > 0) {
         existingPastSearches.forEach(function(city) {
             displayCitySearch(city)
         }) 
     }
-    // existingPastSearches.push(pastSearch);
-    // localStorage.setItem('pastsearches', JSON.stringify(existingPastSearches));
-
-   
-        // createButton = document.createElement('button');
-        // createButton.innerText = cityName;
-        // createButton.id = "pastSearchButtons";
-        // createButton.addEventListener('click', getCoordinates); 
-        // getPastSearches.appendChild(createButton);
 }
 
 displayPastSearches();
-
-// today's date at 12pm = data.list[2]
-// = data.list[2].main
-// 0-5 is today's date
-// increments of 8
-
-
-// Could've created the divs with a for loop to create and populate
-// for (let i = 0; i < 4; i++) {
-//     createButton = document.createElement('button');
-//     createButton.id = 'buttonId'+i;
-//     createButton.classList.add('mc-buttons');
-//     createButton.addEventListener('click', showQuestions); 
-//     quiz.appendChild(createButton);
-// 
