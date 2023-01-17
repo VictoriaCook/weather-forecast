@@ -135,8 +135,11 @@ function displayCurrentWeather(data) {
 
 function display5DayForecast(data) {
     // Add grey backgrounds back to 5-day forecast display boxes
-    let getGreyBoxes= document.querySelector(".greyBox");
-    getGreyBoxes.classList.remove("hide");
+    getDay1Container.classList.remove("hide");
+    getDay2Container.classList.remove("hide");
+    getDay3Container.classList.remove("hide");
+    getDay4Container.classList.remove("hide");
+    getDay5Container.classList.remove("hide");
     
     // Display day 1 data
     
